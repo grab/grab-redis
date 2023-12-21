@@ -9,7 +9,7 @@ require (
 	github.com/onsi/gomega v1.24.1
 	github.com/pkg/errors v0.9.1
 	github.com/stretchr/testify v1.8.2
-	gitlab.myteksi.net/dbops/Redis/v8 v8.11.5-grab1.2
+	github.com/grab/redis/v8 v8.11.5-grab1.0
 	go.uber.org/atomic v1.10.0
 )
 
