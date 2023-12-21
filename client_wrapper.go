@@ -28,7 +28,7 @@ package redis
 
 import (
 	cb "github.com/grab/grab-redis/circuitbreaker"
-	goredis "gitlab.myteksi.net/dbops/Redis/v8"
+	goredis "github.com/grab/redis/v8"
 )
 
 type clientWrapperImpl struct {

@@ -49,8 +49,7 @@ func (l *latencies) Add(value int64) {
 	index := atomic.AddInt64(&l.index, 1)
 	index = index % int64(len(l.values))
 
-	// the guarantee here is that the old value is replaced with a newer one,
-	// so we ignore whether this might have overridden an even newer value
+	// the guarantee here is that the old value is replaced with a newer one
 	atomic.StoreInt64(&l.values[index], value)
 
 	// after the store, there are at least `added` number of elements

@@ -39,9 +39,6 @@ type Logger interface {
 	// Info logs an informational message with the given format and arguments.
 	Info(packageName string, format string, args ...interface{})
 
-	// Debug logs a debugging message with the given format and arguments.
-	Debug(packageName string, format string, args ...interface{})
-
 	// ServiceDown logs a service down warning with the service name and error.
 	ServiceDown(name string, err error)
 
@@ -51,23 +48,11 @@ type Logger interface {
 
 // StatsClient defines the interface for interacting with a stats system like StatsD.
 type StatsClient interface {
-	// Count increments the counter for the given metric by the specified value.
-	Count(metric string, value int64, tags ...string)
-
 	// Count1 is a convenience method incrementing the counter by 1 for the given metric.
 	Count1(pkgName string, metric string, tags ...[]string)
 
 	// Gauge records a value for the given metric, typically a value at a point in time.
 	Gauge(name string, metric string, value float64, tags []string)
-
-	// Timing sends timing information for the given metric, typically the duration of an operation.
-	Timing(metric string, value int64, tags ...string)
-
-	// Increment increases the counter for the given metric by 1.
-	Increment(metric string)
-
-	// Decrement decreases the counter for the given metric by 1.
-	Decrement(metric string)
 
 	// Duration records the duration of an event for the given metric.
 	Duration(name string, elapsed string, now time.Time, tags ...string)
@@ -85,9 +70,6 @@ func (l *NoopLogger) Warn(packageName string, format string, args ...interface{}
 // Info does nothing.
 func (l *NoopLogger) Info(packageName string, format string, args ...interface{}) {}
 
-// Debug does nothing.
-func (l *NoopLogger) Debug(packageName string, format string, args ...interface{}) {}
-
 // ServiceDown does nothing.
 func (l *NoopLogger) ServiceDown(name string, err error) {}
 
@@ -102,23 +84,11 @@ func NewNoopLogger() Logger {
 // NoopStatsClient is an implementation of StatsClient that does not record any statistics.
 type NoopStatsClient struct{}
 
-// Count does nothing.
-func (n *NoopStatsClient) Count(metric string, value int64, tags ...string) {}
-
 // Count1 does nothing.
 func (n *NoopStatsClient) Count1(pkgName string, metric string, tags ...[]string) {}
 
 // Gauge does nothing.
 func (n *NoopStatsClient) Gauge(name string, metric string, value float64, tags []string) {}
-
-// Timing does nothing.
-func (n *NoopStatsClient) Timing(metric string, value int64, tags ...string) {}
-
-// Increment does nothing.
-func (n *NoopStatsClient) Increment(metric string) {}
-
-// Decrement does nothing.
-func (n *NoopStatsClient) Decrement(metric string) {}
 
 // Duration does nothing.
 func (n *NoopStatsClient) Duration(name string, elapsed string, now time.Time, tags ...string) {}

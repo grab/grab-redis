@@ -36,7 +36,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/grab/grab-redis/circuitbreaker"
-	goredis "gitlab.myteksi.net/dbops/Redis/v8"
+	goredis "github.com/grab/redis/v8"
 )
 
 type ConnectorConfig struct {

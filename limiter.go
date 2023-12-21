@@ -32,8 +32,8 @@ import (
 	"fmt"
 
 	cb "github.com/grab/grab-redis/circuitbreaker"
+	goredis "github.com/grab/redis/v8"
 	"github.com/myteksi/hystrix-go/hystrix"
-	goredis "gitlab.myteksi.net/dbops/Redis/v8"
 )
 
 // We need to use a separate circuit breaker for each redis instance, we implemented and modified the limiter that Go-Redis provides to support per node cb.

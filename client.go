@@ -34,7 +34,7 @@ import (
 
 	"github.com/grab/grab-redis/circuitbreaker"
 	"github.com/grab/grab-redis/redisapi"
-	goredis "gitlab.myteksi.net/dbops/Redis/v8"
+	goredis "github.com/grab/redis/v8"
 )
 
 // clientImpl stores the basic configuration of a redis client and implements Client interface

@@ -37,7 +37,7 @@ import (
 	. "github.com/onsi/gomega"
 
 	"github.com/grab/grab-redis/circuitbreaker"
-	goredis "gitlab.myteksi.net/dbops/Redis/v8"
+	goredis "github.com/grab/redis/v8"
 )
 
 type fakeConfigurer struct {

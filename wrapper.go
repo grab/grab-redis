@@ -30,7 +30,7 @@ import (
 	"context"
 
 	cb "github.com/grab/grab-redis/circuitbreaker"
-	goredis "gitlab.myteksi.net/dbops/Redis/v8"
+	goredis "github.com/grab/redis/v8"
 )
 
 // wrap goRedis calls (to allow mock injection)
